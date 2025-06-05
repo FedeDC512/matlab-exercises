@@ -1,4 +1,4 @@
-function tmp=convoluzione(img,k)
+function tmp=convoluzione_prof(img,k)
 [h,w]=size(img);
 tmp=zeros(h,w,'single');
 

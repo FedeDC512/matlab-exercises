@@ -5,7 +5,7 @@ function output = convoluzione_con_padding(img, k, padding_type)
     a = floor(kh / 2);     % Offset verticale
     b = floor(kw / 2);     % Offset orizzontale
     
-    % Aggiungi il padding specificato (replicate, symmetric, circular, ecc.)
+    % Inserisco il padding specificato (replicate, symmetric, circular, ecc.)
     padded_img = padarray(img, [a, b], padding_type);
     
     output = zeros(h, w, 'single');  % Matrice per l'output
@@ -16,7 +16,7 @@ function output = convoluzione_con_padding(img, k, padding_type)
             temp = 0;
             for x = -a:a
                 for y = -b:b
-                    % Accedi alla versione paddata con un offset
+                    % Accedo alla versione paddata con un offset
                     temp = temp + padded_img(j + a - y, i + b - x) * k(y + a + 1, x + b + 1);
                 end
             end
