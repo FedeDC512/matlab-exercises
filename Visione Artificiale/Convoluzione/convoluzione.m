@@ -2,7 +2,7 @@ function output = convoluzione(img, k)
     % Converte l'immagine in single precision per il calcolo
     img = single(img);
 
-    % Ottieni le dimensioni dell'immagine e del kernel
+    % Ottiene le dimensioni dell'immagine e del kernel
     [h, w] = size(img);
     [kh, kw] = size(k);
 

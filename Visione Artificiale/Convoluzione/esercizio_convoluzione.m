@@ -6,7 +6,6 @@ kernel = ones(3,3) / 9; % Filtro Media
 
 % Chiamata alla funzione
 result = convoluzione(img_gray, kernel);
-imshow(result);
 
 % Visualizzazione
 figure;
