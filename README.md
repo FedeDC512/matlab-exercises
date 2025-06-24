@@ -1,2 +1,4 @@
 # Esercizi di Programmazione in MATLAB
 Esercizi svolti durante i corsi di Visione Artificiale 2024-2025, tenuto dal Prof. [Cesare Fabio Valenti](https://www.unipa.it/persone/docenti/v/cesare.valenti), e Ingegneria e Analisi Numerica 2024-2025, tenuto dalla Prof.ssa [Elena Toscano](https://www.unipa.it/persone/docenti/t/elena.toscano), presso l'Università degli Studi di Palermo, Corso di Laurea in Informatica L-31. Gli esercizi sono organizzati in cartelle suddivise per materia, ciascuna delle quali contiene le cartelle dei singoli esercizi, complete di codice sorgente MATLAB (.m) e, dove necessario, i file di input/output.
+
+<!-- Usati Image Processing Toolbox e Wavelet Toolbox -->
