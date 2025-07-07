@@ -1,7 +1,7 @@
 clear; close all;
 
-% img = game;
-img = imread('../imgs/game.png');
+img = imread('../imgs/peppers.png');
+img = img(1:200, 1:200, :);
 colors = 256;
 
 [X,cmap] = rgb2ind(img, colors);
@@ -23,6 +23,7 @@ function [immagine_quantizzata,final_colormap] = quantizzazione_custom(rgb_image
     % Scorro l'immagine
     for i = 1:h
         for j = 1:w
+            fprintf('Currently in px (%d, %d)\n', i, j); % Debug
                 
             r = rgb_image(i, j, 1);
             g = rgb_image(i, j, 2);
@@ -41,8 +42,8 @@ function [immagine_quantizzata,final_colormap] = quantizzazione_custom(rgb_image
             end
                 
             if is_new_color
-                 % Altrimenti non lo inserisco nella current_colormap
-                current_colormap = aggiungi_colore_palette(current_color, current_colormap);
+                 % Altrimenti lo inserisco nella current_colormap
+                current_colormap = [current_colormap; current_color];
 
                 % Salvo nella nuova immagine (current_img) in coordinate i j
                 % la riga del colore inserito nella palette (current_colormap)
@@ -52,29 +53,12 @@ function [immagine_quantizzata,final_colormap] = quantizzazione_custom(rgb_image
         end
     end
 
-    % current_colormap è la nuova palette
-
-    % Creo n parallelepipedi nel cubo rgb per gli n colori della nuova 
-    % palette
-
-    % Restringo i parallelepipedi il più possibile
-
-    % Prendo il valore rappresentante per ogni parallelepipedo, come
-    % media dei valori o prendendo il valore presente nell'immagine più
-    % vicino al centro del parallelepipedo (migliore)
-
-    % Creo una nuova palette in cui i colori dell'immagine originale
-    % contenuti in uno specifico parallelepipedo sono sostituiti da quello
-    % rappresentante
-
-    % Applico la nuova palette alla nuova immagine che contiene i valori
-    % delle posizioni dei colori nella palette
-
     % Normalizzo la palette (0-255 → 0-1)
+    current_colormap = double(current_colormap); 
     current_colormap = current_colormap / 255;
+    % Riduco il numero di colori nella palette
     [immagine_quantizzata,final_colormap] = imapprox(current_img,current_colormap,colors);
-end
 
-function new_palette = aggiungi_colore_palette(colore, palette)
-    new_palette = [palette; colore];
+    fprintf("Colori nell'immagine originale: %d\n", size(current_colormap, 1));
+    fprintf('Colori nella palette quantizzata: %d\n', size(final_colormap, 1));
 end
